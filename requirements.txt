@@ -1,0 +1,10 @@
+fastapi==0.115.8
+uvicorn==0.34.0
+python-multipart==0.0.20
+SpeechRecognition==3.14.1
+pydub==0.25.1
+httpx==0.28.1
+python-dotenv==1.0.1
+pydantic-settings==2.7.1
+deep-translator==1.11.4
+google-genai==1.2.0
