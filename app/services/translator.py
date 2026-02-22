@@ -97,16 +97,17 @@ class TranslatorService:
         src = lang_names.get(source_lang, source_lang)
         tgt = lang_names.get(target_lang, target_lang)
 
-        prompt = f"""
-        Translate the following text from {src} to {tgt}.
-        The context is Agriculture, specifically serving farmers, students, and researchers. 
-        The content covers crops, diseases, government schemes, and modern farming practices.
-        Maintain a professional yet helpful tone. Ensure technical terms, chemical names, and scheme titles are translated accurately and appropriately for the agricultural domain.
-        Only return the translated text.
+        prompt = f"""You are a strict technical translator specialized in Agriculture.
+Your task is to translate from {src} to {tgt}.
 
-        Text to translate:
-        {text}
-        """
+RULES:
+1. Output ONLY the translated text. 
+2. Do not include phrases like "Here is the translation" or "I can't translate".
+3. Maintain technical accuracy for crops, pests, and schemes.
+4. If the input is not {src}, just translate it to the best of your ability into {tgt}.
+
+TEXT TO TRANSLATE:
+{text}"""
 
         try:
             # Set a 10s timeout for the LLM response
