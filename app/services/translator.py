@@ -26,7 +26,7 @@ class TranslatorService:
         self.openai_client = None
         try:
             self.openai_client = AsyncOpenAI(
-                base_url="http://3.109.63.164:11434/v1",
+                base_url=os.getenv("OSS_LLM_URL", "http://3.109.63.164:11434/v1"),
                 api_key="dummy"
             )
             logger.info("OpenAI client initialized for advanced translation.")
